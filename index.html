@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dra. Jenny Sarmiento - Inicio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo"> <img src="logo.png" alt="Logo"> </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="nosotros.html">Acerca de</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="hero">
+        <div class="carousel-container">
+            <button class="prev" onclick="prevSlide()">&#10094;</button>
+            <div class="carousel">
+                <img src="imagen1.jpg" class="active">
+                <img src="imagen2.jpg">
+                <img src="imagen3.jpg">
+            </div>
+            <button class="next" onclick="nextSlide()">&#10095;</button>
+        </div>
+    </section>
+    
+    <section class="servicios">
+        <h2>Servicios Populares</h2>
+        <div class="tarjetas">
+            <div class="card" onclick="location.href='servicios.html#servicio1'">
+                <img src="servicio1.jpg">
+                <h3>Tratamiento Facial</h3>
+            </div>
+            <div class="card" onclick="location.href='servicios.html#servicio2'">
+                <img src="servicio2.jpg">
+                <h3>Acné y Cicatrices</h3>
+            </div>
+            <div class="card" onclick="location.href='servicios.html#servicio3'">
+                <img src="servicio3.jpg">
+                <h3>Rejuvenecimiento</h3>
+            </div>
+            <div class="card" onclick="location.href='servicios.html#servicio4'">
+                <img src="servicio4.jpg">
+                <h3>Depilación Láser</h3>
+            </div>
+        </div>
+    </section>
+    
+    <section class="beneficios">
+        <h2>Beneficios</h2>
+        <div class="iconos">
+            <div class="icon"><img src="icono1.png"><p>Profesionalismo</p></div>
+            <div class="icon"><img src="icono2.png"><p>Atención Personalizada</p></div>
+            <div class="icon"><img src="icono3.png"><p>Tecnología Avanzada</p></div>
+            <div class="icon"><img src="icono4.png"><p>Resultados Garantizados</p></div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="footer-logo"> <img src="logo.png" alt="Logo"> </div>
+        <div class="redes">
+            <a href="#"><img src="facebook.png"></a>
+            <a href="#"><img src="instagram.png"></a>
+            <a href="#"><img src="twitter.png"></a>
+        </div>
+    </footer>
+    
+    <script>
+        let currentIndex = 0;
+        const images = document.querySelectorAll('.carousel img');
+
+        function showSlide(index) {
+            images.forEach(img => img.classList.remove('active'));
+            images[index].classList.add('active');
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % images.length;
+            showSlide(currentIndex);
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            showSlide(currentIndex);
+        }
+
+        setInterval(nextSlide, 3000);
+    </script>
+</body>
+</html>
